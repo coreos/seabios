@@ -25,6 +25,8 @@
 #include "util.h" // printf, get_keystroke
 #include "stacks.h" // wait_threads, reset
 
+#if CONFIG_TCGBIOS
+
 /****************************************************************
  * TPM 1.2 commands
  ****************************************************************/
@@ -1853,3 +1855,4 @@ tpm_menu(void)
         break;
     }
 }
+#endif // CONFIG_TCGBIOS

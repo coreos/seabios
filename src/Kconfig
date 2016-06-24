@@ -454,11 +454,18 @@ menu "BIOS interfaces"
             managers may require the UMB region to be read-only.
 
     config TCGBIOS
-        depends on S3_RESUME
+        depends on S3_RESUME && !TCGBIOS_QEMU
         bool "TPM support and TCG BIOS extensions"
         default y
         help
             Provide TPM support along with TCG BIOS extensions
+
+    config TCGBIOS_QEMU
+        depends on !TCGBIOS
+        bool "TCG BIOS extensions for QEMU measurements"
+        default n
+        help
+            Provide TCG BIOS extensions for use with QEMU measurement support
 
 endmenu
 
